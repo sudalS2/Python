@@ -122,10 +122,12 @@ def solution(denum1, num1, denum2, num2):
 
 ### 4.
 def solution(denum1, num1, denum2, num2):
+    # 최소공배수 구하는 함수
     def lcm(a,b):
-        if a%b == 0:
+        if a % b == 0:
             return b
         else:
-            return lcm(b,a%b)
+            return lcm(b, a % b)
+        
     l = lcm((num2*denum1 + num1*denum2), num1*num2)
     return ((num2*denum1 + num1*denum2)//l , num1*num2//l)
