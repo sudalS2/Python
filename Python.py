@@ -113,7 +113,7 @@ def solution(denum1, num1, denum2, num2):
     gcd = math.gcd(denum, num) # 최대공약수 구하는 함수
     return [denum//gcd, num//gcd]
 
-### 3. 
+### 3. https://wikidocs.net/106676 참조
 from fractions import Fraction
 
 def solution(denum1, num1, denum2, num2):
@@ -141,7 +141,7 @@ def solution(numbers):
         answer.append(2 * num)
     return answer
 
-### 2.
+### 2. https://wikidocs.net/22 참조
 def solution(numbers):
     return [num * 2 for num in numbers]
 
