@@ -75,3 +75,31 @@ def solution(num1, num2):
 
 ## 분수의 덧셈
 
+### 1.
+def solution(denum1, num1, denum2, num2):
+    answer = []
+    # 두 수가 배수관계일때.
+    if max(num1, num2) % min(num1, num2) == 0:
+        tmp =  max(num1,num2) // min(num1,num2)
+        if num1 <= num2:
+            answer = [denum1*tmp + denum2, num2]
+        else:
+            answer = [denum2*tmp + denum1, num1]
+    # 두 수가 배수관계가 아닐때.
+    else:
+        answer = [(denum2*num1) + (denum1*num2), num1 * num2]
+    
+    ############# 약분을 안한 answer 출력 ##############
+    
+    # answer 약분되는지 판별
+    div = 2 # 1로 나눠지는 것은 의미가 없기 때문에 2부터 시작
+    # 분자와 분모 중 더 작은 수가 div보다 크거나 같을 때까지만 반복
+    while min(answer[0], answer[1]) >= div:
+        # 분자, 분모 모두 div로 나눠질 경우
+        if answer[0] % div == 0 and answer[1] % div == 0: 
+            answer[0] = answer[0] // div
+            answer[1] = answer[1] // div
+        # div로 약분이 안될 경우    
+        else:
+            div += 1
+    return answer
