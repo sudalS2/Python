@@ -150,4 +150,15 @@ def solution(numbers):
     answer = list(map(lambda x : x*2, numbers))
     return answer
 
+## 중앙값 구하기
 
+### 1.
+import numpy as np
+
+def solution(array):
+    answer = np.median(array)
+    return answer
+
+### 2.
+def solution(array):
+    return sorted(array)[len(array) // 2] # 정렬 후 배열의 길이 / 2 의 몫인 순서 값 반환(배열의 카운팅은 0 부터 시작)
