@@ -114,11 +114,11 @@ def solution(denum1, num1, denum2, num2):
     return [denum//gcd, num//gcd]
 
 ### 3. https://wikidocs.net/106676 참조
-from fractions import Fraction
+from fractions import Fraction # 유리수를 계산할 때 사용하는 모듈
 
 def solution(denum1, num1, denum2, num2):
-    answer = Fraction(denum1, num1) + Fraction(denum2, num2)
-    return [answer.numerator, answer.denominator]
+    answer = Fraction(denum1, num1) + Fraction(denum2, num2) # Fraction(분자, 분모) 형태
+    return [answer.numerator, answer.denominator] # numerator: 분자를 알 수 있음, denominator: 분모를 알 수 있음
 
 ### 4.
 def solution(denum1, num1, denum2, num2):
