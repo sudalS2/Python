@@ -145,7 +145,9 @@ def solution(numbers):
 def solution(numbers):
     return [num * 2 for num in numbers]
 
-### 3.
+### 3. https://blockdmask.tistory.com/531 참조
 def solution(numbers):
     answer = list(map(lambda x : x*2, numbers))
     return answer
+
+
