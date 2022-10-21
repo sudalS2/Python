@@ -162,3 +162,5 @@ def solution(array):
 ### 2.
 def solution(array):
     return sorted(array)[len(array) // 2] # 정렬 후 배열의 길이 / 2 의 몫인 순서 값 반환(배열의 카운팅은 0 부터 시작)
+
+
