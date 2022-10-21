@@ -103,3 +103,29 @@ def solution(denum1, num1, denum2, num2):
         else:
             div += 1
     return answer
+
+### 2.
+import math
+
+def solution(denum1, num1, denum2, num2):
+    denum = denum1 * num2 + denum2 * num1
+    num = num1 * num2
+    gcd = math.gcd(denum, num) # 최대공약수 구하는 함수
+    return [denum//gcd, num//gcd]
+
+### 3. 
+from fractions import Fraction
+
+def solution(denum1, num1, denum2, num2):
+    answer = Fraction(denum1, num1) + Fraction(denum2, num2)
+    return [answer.numerator, answer.denominator]
+
+### 4.
+def solution(denum1, num1, denum2, num2):
+    def lcm(a,b):
+        if a%b == 0:
+            return b
+        else:
+            return lcm(b,a%b)
+    l = lcm((num2*denum1 + num1*denum2), num1*num2)
+    return ((num2*denum1 + num1*denum2)//l , num1*num2//l)
