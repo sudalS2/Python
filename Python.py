@@ -73,7 +73,7 @@ def solution(num1, num2):
 def solution(num1, num2):
     return 1 if num1==num2 else -1
 
-## 분수의 덧셈
+## 분수의 덧셈 -> https://dimenchoi.tistory.com/46 참조
 
 ### 1.
 def solution(denum1, num1, denum2, num2):
