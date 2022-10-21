@@ -131,3 +131,21 @@ def solution(denum1, num1, denum2, num2):
         
     l = lcm((num2*denum1 + num1*denum2), num1*num2)
     return ((num2*denum1 + num1*denum2)//l , num1*num2//l)
+
+## 배열 두배 만들기
+
+### 1.
+def solution(numbers):
+    answer = []
+    for num in numbers:
+        answer.append(2 * num)
+    return answer
+
+### 2.
+def solution(numbers):
+    return [num * 2 for num in numbers]
+
+### 3.
+def solution(numbers):
+    answer = list(map(lambda x : x*2, numbers))
+    return answer
