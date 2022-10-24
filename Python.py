@@ -163,4 +163,59 @@ def solution(array):
 def solution(array):
     return sorted(array)[len(array) // 2] # 정렬 후 배열의 길이 / 2 의 몫인 순서 값 반환(배열의 카운팅은 0 부터 시작)
 
+## 최빈값 구하기
 
+### 1.
+from collections import Counter
+
+def solution(array):
+    c = Counter(array)
+    order = c.most_common()
+    maximum = order[0][1]
+
+    modes = []
+    for i in order:
+        if i[1] == maximum:
+            modes.append(i[0])
+    print(modes)
+    
+    if len(modes) == 1:
+        return modes[0]
+    else:
+        return -1
+
+### 2.
+def solution(array):
+    while len(array) != 0:
+        for i, a in enumerate(set(array)):
+            array.remove(a)
+        if i == 0:
+            return a
+    return -1
+
+### 3.
+from collections import Counter
+
+def solution(array):
+    a = Counter(array).most_common(2)
+    if len(a) == 1:
+        return a[0][0]
+    if a[0][1] == a[1][1]:
+        return -1
+    return a[0][0]
+
+### 4.
+def solution(array):
+    keys = set(array)
+    dict = {}
+    max_freq = []
+    for key in keys:
+        dict[key] = array.count(key)
+    for key in keys:
+        if dict[key] == max(dict.values()):
+            max_freq.append(key)
+    if len(max_freq) > 1:
+        answer = -1
+    else:
+        answer = max_freq[0]
+    return answer
