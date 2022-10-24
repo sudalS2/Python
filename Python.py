@@ -219,3 +219,17 @@ def solution(array):
     else:
         answer = max_freq[0]
     return answer
+
+## 짝수는 싫어요
+
+### 1.
+def solution(n: int) -> list:
+    return [x for x in range(1, n+1) if x % 2 == 1]
+
+### 2.
+def solution(n):
+    return [i for i in range(1, n+1, 2)]
+
+### 3.
+def solution(n):
+    return [x for x in range(n + 1) if x % 2]
