@@ -349,10 +349,35 @@ def solution(age):
 ## 배열 뒤집기
 
 ### 1.
+def solution(num_list):
+    return list(reversed(num_list))
+
+### 2.
+def solution(num_list):
+    return num_list[::-1]
+
+### 3.
+def solution(num_list):
+    num_list.reverse()
+    return num_list
+
+### 4.
+def solution(num_list):
+    answer = []
+    for i in range(1,len(num_list)+1):
+        answer.append(num_list[-i])
+
+    return answer
+
+## 
+
+### 1.
 
 ### 2.
 
 ### 3.
+
+
 
 
 
