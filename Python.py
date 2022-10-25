@@ -327,3 +327,25 @@ def solution(price):
         return int(price * (1-0.2))
     else:
         return price
+
+## 아이스 아메리카노
+
+### 1.
+def solution(money):
+    answer = [money//5500, money%5500]
+    return answer
+
+### 2.
+def solution(money):
+    return divmod(money, 5500)
+
+## 나이 출력
+
+### 1.
+
+### 2.
+
+### 3.
+
+
+
