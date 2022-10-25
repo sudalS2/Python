@@ -369,13 +369,38 @@ def solution(num_list):
 
     return answer
 
-## 
+## 각도기
 
 ### 1.
+def solution(angle):
+    answer = (angle // 90) * 2 + (angle % 90 > 0) * 1
+    return answer
 
 ### 2.
+def solution(angle):
+    if angle == 180:
+        return 4
+    elif angle > 90:
+        return 3
+    elif angle == 90:
+        return 2
+    elif angle > 0:
+        return 1
+    
+## 중복된 숫자 개수
 
-### 3.
+### 1.
+def solution(array, n):
+    cnt = array.count(n)
+    return cnt
+
+### 2.
+from collections import Counter
+
+def solution(array, n):
+    return Counter(array)[n]
+
+
 
 
 
