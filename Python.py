@@ -342,6 +342,13 @@ def solution(money):
 ## 나이 출력
 
 ### 1.
+def solution(age):
+    answer = 2022 - (age-1)
+    return answer
+
+## 배열 뒤집기
+
+### 1.
 
 ### 2.
 
