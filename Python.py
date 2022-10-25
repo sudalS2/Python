@@ -297,3 +297,33 @@ import numpy as np
 
 def solution(numbers):
     return np.mean(numbers)
+
+## 옷가게 할인 받기
+
+### 1.
+def solution(price):
+    if price>=500000:
+        price = price *0.8
+    elif price>=300000:
+        price = price *0.9
+    elif price>=100000:
+        price = price * 0.95
+    return int(price)
+
+### 2.
+def solution(price):
+    price_rates = {500000:0.8, 300000:0.9, 100000:0.95, 0:1}
+    for sale_price, sale_rate in price_rates.items():
+        if price >= sale_price:
+            return int(price * sale_rate)
+
+### 3.
+def solution(price):
+    if price >= 100000 and price < 300000:
+        return int(price * (1-0.05))
+    if price >= 300000 and price < 500000:
+        return int(price * (1-0.1))
+    if price >= 500000:
+        return int(price * (1-0.2))
+    else:
+        return price
