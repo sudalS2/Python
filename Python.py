@@ -253,3 +253,34 @@ def solution(n):
 ### 3.
 def solution(n):
     return (n - 1) // 7 + 1
+
+## 피자 나눠먹기(2)
+
+### 1.
+def solution(n):
+    i=1
+    while(1):
+        if (6*i)%n==0:
+            return i
+        i+=1
+
+### 2.
+import math
+
+def solution(n):
+    answer = ((6 * n)/math.gcd(6, n)) // 6
+    return answer
+
+## 피자 나눠먹기(3)
+
+### 1.
+def solution(slice, n):
+    answer = (n-1) // slice + 1
+    return answer
+
+### 2.
+import math
+
+def solution(slice, n):
+    answer = math.ceil(n/slice)
+    return answer
