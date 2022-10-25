@@ -284,3 +284,16 @@ import math
 def solution(slice, n):
     answer = math.ceil(n/slice)
     return answer
+
+## 배열의 평균값
+
+### 1.
+def solution(numbers):
+    answer = sum(numbers) / len(numbers)
+    return answer
+
+### 2.
+import numpy as np
+
+def solution(numbers):
+    return np.mean(numbers)
