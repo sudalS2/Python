@@ -233,3 +233,23 @@ def solution(n):
 ### 3.
 def solution(n):
     return [x for x in range(n + 1) if x % 2]
+
+## 피자 나눠 먹기(1)
+
+### 1. 
+import math
+
+def solution(n):
+    answer = math.ceil(n / 7)
+    return answer
+
+### 2.
+def solution(n):
+    if n % 7 == 0:
+        return (n // 7)
+    else:
+        return (n // 7) + 1
+    
+### 3.
+def solution(n):
+    return (n - 1) // 7 + 1
