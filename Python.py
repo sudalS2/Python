@@ -454,7 +454,33 @@ def solution(num_list):
             
     return [len(a),len(b)]
 
+## 문자 반복 출력하기
 
+### 1.
+def solution(my_string, n):
+    return ''.join(i*n for i in my_string)
+
+### 2.
+def solution(my_string, n):
+    answer = ''
+    
+    for i in my_string:
+        answer += i * n
+    return answer
+
+## 특정 문자 제거하기
+
+### 1.
+def solution(my_string, letter):
+    return my_string.replace(letter, '')
+
+### 2.
+def solution(my_string, letter):
+    answer = ''    
+    for i in my_string:
+        if letter != i:
+            answer += i
+    return answer
 
 
 
