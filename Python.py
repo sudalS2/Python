@@ -482,5 +482,27 @@ def solution(my_string, letter):
             answer += i
     return answer
 
+## 양꼬치
 
+### 1.
+def solution(n, k):
+    answer = (n*12000) + ((k-(n//10))*2000)
+    return answer
+
+### 2.
+def solution(n, k):
+    service = n//10
+    drink = max(0, k-service)
+    return (12000*n)+(2000*drink)
+
+## 짝수의 합
+
+### 1.
+def solution(n):
+    answer = sum(range(0,n+1,2))
+    return answer
+
+### 2.
+def solution(n):
+    return sum([i for i in range(2, n + 1, 2)])
 
