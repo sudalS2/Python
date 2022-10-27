@@ -400,7 +400,59 @@ from collections import Counter
 def solution(array, n):
     return Counter(array)[n]
 
+## 문자열 뒤집기
 
+### 1.
+def solution(my_string):
+    answer = my_string[::-1]
+    return answer
+
+### 2.
+def solution(my_string):
+    answer = ''
+
+    for i in range(len(my_string)-1, -1, -1) :
+        answer += my_string[i]
+    return answer
+
+### 3.
+def solution(my_string):
+    return ''.join(list(reversed(my_string)))
+
+## 직각삼각형 출력하기
+
+### 1.
+n = int(input())
+
+for i in range(1,n+1,1):
+    print(i * '*')
+    
+## 짝수 홀수 개수
+
+### 1. map(함수, 반복 가능한 자료형(튜플,리스트)) : 리스트 값들에 함수를 적용 map객체 -> list 혹은 tuple로 형 변환해줘야 함.
+def solution(num_list):
+    div_num_list = list(map(lambda v: v % 2, num_list))
+    return [div_num_list.count(0), div_num_list.count(1)]
+
+### 2.
+def solution(num_list):
+    answer = [0,0]
+    for n in num_list:
+        answer[n%2]+=1
+    return answer
+
+### 3.
+def solution(num_list):
+    a = []
+    b =[]
+    
+    for i in num_list:
+        if i % 2 == 0:
+            a.append(i)
+        else:
+            b.append(i)
+            
+    return [len(a),len(b)]
 
 
 
