@@ -518,6 +518,9 @@ def solution(numbers, num1, num2):
 def solution(age):
     return ''.join([chr(ord('a')+int(i)) for i in str(age)])
 
+### 설명) ord(문자): 문자의 유니코드 정수를 반환 ex) ord('a') = 97
+### 설명) chr(정수): 정수의 유니코드 문자를 반환 ex) chr(97) ='a'
+
 ### 2.
 def solution(age):
     change = ['a','b','c','d','e','f','g','h','i','j']
@@ -527,7 +530,7 @@ def solution(age):
 ### 3. 
 def solution(age):
     PG_AGE= {0:'a', 1:'b', 2:'c', 3:'d',4:'e',5:'f',6:'g',7:'h',8:'i',9:'j'}
-    age_list = list(map(int,str(age))) # = [int(a) for a in str(age)]
+    age_list = list(map(int,str(age))) # = [int(i) for i in str(age)]
     answer= ''
     for i in range(0, len(age_list)):
         answer += PG_AGE[age_list[i]]
@@ -615,9 +618,39 @@ def solution(letter):
 ## 가위 바위 보
 
 ### 1.
+def solution(rsp):
+    rsp_win = {2:'0', 0:'5', 5:'2'}
+    answer = ''
+    for i in range(len(rsp)):
+        answer += rsp_win[[int(i) for i in str(rsp)][i]]
+    return answer
 
 ### 2.
+def solution(rsp):
+    win = {'0':'5','2':'0','5':'2'}
+    return ''.join(win[i] for i in rsp)
+
+## 구슬을 나누는 경우의 수
+
+### 1.
+import math
+
+def solution(balls, share):
+    return math.comb(balls, share)
+
+### 2.
+import math
+
+def solution(balls, share):
+    return math.factorial(balls)/(math.factorial(balls-share)*math.factorial(share))
 
 ### 3.
+import math
+
+def solution(balls, share):
+    n = list(range(1,balls+1))
+    nm = list(range(1,(balls - share)+1))
+    m = list(range(1,share+1))
+    return math.prod(n) // (math.prod(nm) * math.prod(m))
 
 
