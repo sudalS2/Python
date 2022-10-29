@@ -803,24 +803,81 @@ def solution(n, numlist):
 def solution(n, numlist):
     return list(filter(lambda i: i%n == 0, numlist))
 
-##
+## 약수 구하기
 
 ### 1.
+def solution(n):
+    return sorted([i for i in range(1, n+1) if n % i == 0])
+
 ### 2.
-### 3.
+def solution(n):
+    return list(filter(lambda v: n % v == 0, [i for i in range(1, n//2+1)])) + [n]
 
+## 점의 위치 구하기
 
-##
 ### 1.
+def solution(dot):
+    a, b = 1, 0
+    if dot[0]*dot[1] > 0:
+        b = 1
+    if dot[1] < 0:
+        a = 2
+    return 2*a-b
+
 ### 2.
+def solution(dot):
+    quad = [(3,2),(4,1)]
+    return quad[dot[0] > 0][dot[1] > 0]
+
 ### 3.
+def solution(dot):
+    x,y = dot
+    if x*y>0:
+        return 1 if x>0 else 3
+    else:
+        return 4 if x>0 else 2
 
+### 4.
+def solution(dot):
+    if dot[0] > 0 and dot[1] > 0:
+        return 1
+    elif dot[0] < 0 and dot[1] > 0:
+        return 2
+    elif dot[0] < 0 and dot[1] < 0:
+        return 3
+    else:
+        return 4
 
-##
+## 숨어있는 숫자의 덧셈(1)
+
 ### 1.
-### 2.
-### 3.
+def solution(my_string):
+    return sum(int(i) for i in my_string if i.isdigit())
 
+### 설명) 문자열.isdigit(): 문자열이 '숫자'로만 이루어져있는지 확인, 단일 글자가 '숫자' 모양으로 생겼으면 무조건 True를 반환 
+### ex) "1.234".isdigit() = False, '3²'.isnumeric() = True
+
+### 2.
+def solution(my_string):
+    answer = 0
+    for i in my_string:
+        if i.isnumeric():
+            answer += int(i)
+    return answer
+
+### 설명) 문자열.isnumeric(): 문자열이 '숫자'로만 이루어져있는지 확인, 숫자값 표현에 해당하는 문자열까지 인정(제곱근 및 분수, 거듭제곱 특수문자 포함) 
+### ex) "1.234".isdigit() = True, '3²'.isnumeric() = True
+
+### 3.
+def solution(my_string):
+    answer = []
+    list_ms = list(map(str, str(my_string)))
+    for i in range(len(list_ms)):
+        if list_ms[i].isdecimal() == True:
+            answer.append(list_ms[i])
+    return sum([int(i) for i in answer])
+
+### 설명) 문자열.isnumeric(): 문자열이 '숫자'로만 이루어져있는지 확인,  int형으로 변환이 가능한지 알아내는 함수 ex) '3²'.isnumeric() = False
 
 ##
 ### 1.
