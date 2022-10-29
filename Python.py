@@ -772,18 +772,39 @@ def solution(sides):
     else:
         return 2
     
-## 
+## 배열의 유사도
+
 ### 1.
+def solution(s1, s2):
+    return len([i for i in s1 if i in s2])
+
 ### 2.
+def solution(s1, s2):
+    return len(set(s1)&set(s2));
+
 ### 3.
+def solution(s1, s2):
+    return sum(map(lambda v: s2.count(v), s1))
+
+### 4.
+def solution(s1, s2):
+    for i in range(len(s1)):
+        if s1[i] in s2:
+            answer += 1
+    return answer
+
+## n의 배수 고르기
+
+### 1.
+def solution(n, numlist):
+    return [i for i in numlist if i % n == 0]
+
+### 2.
+def solution(n, numlist):
+    return list(filter(lambda i: i%n == 0, numlist))
 
 ##
-### 1.
-### 2.
-### 3.
 
-
-##
 ### 1.
 ### 2.
 ### 3.
