@@ -573,3 +573,44 @@ def solution(n):
 ### 4. 
 def solution(n):
     return len([i for i in range(1, n+1) if n % i == 0])
+
+## 개미군단
+
+### 1.
+def solution(hp):    
+    return hp // 5 + (hp % 5 // 3) + ((hp % 5) % 3)
+
+### 2.
+def solution(hp):
+    ant_1 = hp // 5
+    ant_2 = (hp - (5 * ant_1)) // 3
+    ant_3 = (hp - (5 * ant_1) - (3 * ant_2)) // 1
+    return (ant_1 + ant_2 + ant_3)
+
+## 모스부호(1)
+ morse = {
+        '.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f',
+        '--.':'g','....':'h','..':'i','.---':'j','-.-':'k','.-..':'l',
+        '--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r',
+        '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
+        '-.--':'y','--..':'z'
+    }
+
+### 1.
+def solution(letter):
+    return ''.join([morse[i] for i in letter.split(' ')])
+
+### 2.
+def solution(letter):
+    return "".join(map(lambda w: morse[w], letter.split()))
+
+### 3.
+def solution(letter):
+    answer = ''
+    list_letter = letter.split(' ')
+    for i in range(len(list_letter)):
+        answer += morse[list_letter[i]]
+    return answer
+
+### 3.
+
