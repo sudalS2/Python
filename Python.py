@@ -866,7 +866,7 @@ def solution(my_string):
     return answer
 
 ### 설명) 문자열.isnumeric(): 문자열이 '숫자'로만 이루어져있는지 확인, 숫자값 표현에 해당하는 문자열까지 인정(제곱근 및 분수, 거듭제곱 특수문자 포함) 
-### ex) "1.234".isdigit() = True, '3²'.isnumeric() = True
+### ex) "1.234".isdigit() = False, '3²'.isnumeric() = True
 
 ### 3.
 def solution(my_string):
@@ -877,7 +877,8 @@ def solution(my_string):
             answer.append(list_ms[i])
     return sum([int(i) for i in answer])
 
-### 설명) 문자열.isnumeric(): 문자열이 '숫자'로만 이루어져있는지 확인,  int형으로 변환이 가능한지 알아내는 함수 ex) '3²'.isnumeric() = False
+### 설명) 문자열.isnumeric(): 문자열이 '숫자'로만 이루어져있는지 확인,  int형으로 변환이 가능한지 알아내는 함수 
+### ex) "1.234".isdigit() = False, '3²'.isnumeric() = False
 
 ##
 ### 1.
