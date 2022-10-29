@@ -878,7 +878,7 @@ def solution(my_string):
     return sum([int(i) for i in answer])
 
 ### 설명) 문자열.isnumeric(): 문자열이 '숫자'로만 이루어져있는지 확인,  int형으로 변환이 가능한지 알아내는 함수 
-### ex) "1.234".isdigit() = False, '3²'.isnumeric() = False
+### ex) "1.234".isdecimal() = False, '3²'.isnumeric() = False
 
 ##
 ### 1.
