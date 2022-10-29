@@ -703,3 +703,117 @@ def solution(strlist):
 ### 3.
 def solution(strlist):
     return [len(strlist[i]) for i in range(len(strlist))]
+
+## 가장 큰 수 찾기
+
+### 1.
+def solution(array):
+    return [max(array), array.index(max(array))]
+
+## 최댓값 만들기(1)
+
+### 1.
+def solution(numbers):
+    return sorted(numbers)[-1] * sorted(numbers)[-2]
+
+### 2.
+def solution(numbers):
+    return sorted(numbers, reverse = True)[0] * sorted(numbers, reverse = True)[1]
+
+### 3.
+def solution(numbers):
+    max1 = max(numbers)
+    numbers.remove(max1)
+    max2 = max(numbers)
+    return max1 * max2
+
+## 자릿수 더하기
+
+### 1.
+def solution(n):
+    return sum(list(map(int,str(n))))
+
+### 2.
+def solution(n):
+    return sum(int(i) for i in str(n))
+
+## 문자열안에 문자열
+
+### 1.
+def solution(str1, str2):
+    return 1 + int(str2 not in str1)
+
+### 2.
+def solution(str1, str2):
+    return 1 if str2 in str1 else 2
+
+### 3.
+def solution(str1, str2):
+    if str2 in str1:
+        return 1
+    else:
+        return 2
+
+## 삼각형의 완성조건(1)
+
+### 1.
+def solution(sides):
+    return 1 if max(sides) < sum(sides) - max(sides) else 2
+
+### 2.
+def solution(sides):
+    sides.sort()
+    return 1 if sides[0]+sides[1]>sides[2] else 2
+
+### 3.
+def solution(sides):
+    if max(sides) < sum(sides) - max(sides):
+        return 1
+    else:
+        return 2
+    
+## 
+### 1.
+### 2.
+### 3.
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
