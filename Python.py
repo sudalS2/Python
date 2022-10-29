@@ -506,3 +506,29 @@ def solution(n):
 def solution(n):
     return sum([i for i in range(2, n + 1, 2)])
 
+## 배열 자르기
+
+### 1.
+def solution(numbers, num1, num2):
+    return numbers[num1:num2+1]
+
+## 외계행성의 나이
+
+### 1.
+def solution(age):
+    return ''.join([chr(ord('a')+int(i)) for i in str(age)])
+
+### 2.
+def solution(age):
+    change = ['a','b','c','d','e','f','g','h','i','j']
+    age = list(str(age))
+    return ''.join([change[int(i)] for i in age])
+
+### 3. 
+def solution(age):
+    PG_AGE= {0:'a', 1:'b', 2:'c', 3:'d',4:'e',5:'f',6:'g',7:'h',8:'i',9:'j'}
+    age_list = list(map(int,str(age))) # = [int(a) for a in str(age)]
+    answer= ''
+    for i in range(0, len(age_list)):
+        answer += PG_AGE[age_list[i]]
+    return answer
