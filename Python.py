@@ -653,4 +653,53 @@ def solution(balls, share):
     m = list(range(1,share+1))
     return math.prod(n) // (math.prod(nm) * math.prod(m))
 
+## 머쓱이보다 키 큰 사람
 
+### 1.
+def solution(array, height):
+    return len([i for i in array if i > height])
+
+### 2.
+def solution(array, height):
+    array.append(height)
+    array.sort(reverse=True)
+    return array.index(height)
+
+## 편지
+
+### 1.
+def solution(message):
+    return len(message) * 2
+
+## 제곱수 판별하기
+
+### 1.
+def solution(n):
+    return 1 if (n ** 0.5).is_integer() else 2
+
+### 2.
+import math
+
+def solution(n):
+    return 1 if int(math.sqrt(n)) ** 2 == n else 2
+    
+### 3.
+def solution(n):
+    if round(n ** (1/2)) ** 2 == n:
+        return 1
+    else:
+        return 2
+   
+## 배열 원소의 길이
+
+### 1.
+def solution(strlist):
+    return [len(i) for i in strlist]
+
+### 2.
+def solution(strlist):
+    return list(map(lambda v: len(v), strlist))
+
+### 3.
+def solution(strlist):
+    return [len(strlist[i]) for i in range(len(strlist))]
