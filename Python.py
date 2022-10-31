@@ -933,11 +933,44 @@ def solution(numbers, k):
     return numbers[-1]
 
 
-##
-### 1.
-### 2.
-### 3.
+## 배열 회전시키기
 
+### 1.
+def solution(numbers, direction):
+    return [numbers[-1]] + numbers[:-1] if direction == 'right' else numbers[1:] + [numbers[0]]
+
+### 2.
+from collections import deque
+
+def solution(numbers, direction):
+    numbers = deque(numbers)
+    if direction == 'right':
+        numbers.rotate(1)
+    else:
+        numbers.rotate(-1)
+    return list(numbers)
+
+### 3.
+def solution(numbers, direction):
+    answer = []
+    if direction == 'right':
+        for i in range(-1, len(numbers)-1):
+            answer.append(numbers[i])
+        return answer
+
+    elif direction == 'left':
+        for i in range(1,len(numbers)):
+            answer.append(numbers[i])
+        answer.append(numbers[0])
+        return answer
+    
+### 4.
+def solution(numbers, direction):
+    if direction == "right":
+        answer = [numbers[-1]] + numbers[:len(numbers)-1]
+    else:
+        answer = numbers[1:] + [numbers[0]]
+    return answer
 
 ##
 ### 1.
