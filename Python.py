@@ -880,6 +880,111 @@ def solution(my_string):
 ### 설명) 문자열.isnumeric(): 문자열이 '숫자'로만 이루어져있는지 확인,  int형으로 변환이 가능한지 알아내는 함수 
 ### ex) "1.234".isdecimal() = False, '3²'.isnumeric() = False
 
+## 2차원으로 만들기
+
+### 1.
+def solution(num_list, n):
+    a = []
+    for i in range(0, len(num_list),n):
+        a.append(num_list[i:i+n])
+    return a
+
+### 2.
+def solution(num_list, n):
+    return [num_list[i-n:i] for i in range(n, len(num_list)+1, n)]
+
+### 3.
+import numpy as np
+
+def solution(num_list, n):
+    answer = np.array(num_list).reshape(-1,n)
+    return answer.tolist()
+
+### 4.
+def solution(num_list, n):
+    answer = []
+    for i in range(len(num_list)//n) :
+        answer.append(num_list[i*n:(i+1)*n])
+    return answer
+
+## 공 던지기
+
+### 1.
+def solution(numbers, k):
+    k = 2 * (k - 1) % len(numbers)
+    return numbers[k]
+
+### 2.
+def solution(numbers, k):
+    return 2 * (k - 1) % numbers[-1] + 1
+
+### 3.
+def solution(numbers, k):
+    if k == 1 :
+        return numbers[0]
+    numbers = numbers * k
+    return numbers[k*2-2]
+
+### 4.
+def solution(numbers, k):
+    point = 2*k
+    a,b = divmod(point, len(numbers))
+    numbers = numbers * a + numbers[:b-1]
+    return numbers[-1]
+
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
+
+##
+### 1.
+### 2.
+### 3.
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
+
+
+##
+### 1.
+### 2.
+### 3.
+
+
 ##
 ### 1.
 ### 2.
