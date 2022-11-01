@@ -54,14 +54,72 @@ def solution(participant, completion):
 ## 폰켓몬
 
 ### 1.
-### 2.
-### 3.
+import collections
 
-## 폰켓몬
+def solution(nums):
+    c_nums = collections.Counter(nums)
+    if len(c_nums) >= len(nums)/2:
+        return len(nums)/2
+    else:
+        return len(c_nums)
+    
+### 2.
+def solution(nums):
+    return min(len(set(nums)), len(nums)//2)
+
+### 3.
+def solution(nums):
+    answer = 0
+    myList = set(nums)
+    if len(nums)/2 > len(myList):
+        answer = len(myList)
+    else:
+        answer = len(nums)/2
+    return answer
+
+## 전화번호 목록
 
 ### 1.
+def solution(phoneBook):
+    phoneBook.sort()
+    for p1, p2 in zip(phoneBook, phoneBook[1:]):
+        if p2.startswith(p1):
+            return False
+    return True
+
 ### 2.
-### 3.
+def solution(phone_book):
+    answer = True
+    hash_map = {}
+    for phone_number in phone_book:
+        hash_map[phone_number] = 1
+    for phone_number in phone_book:
+        temp = ""
+        for number in phone_number:
+            temp += number
+            if temp in hash_map and temp != phone_number:
+                answer = False
+    return answer
+
+### 3. -> 효율성 실패
+from itertools import combinations as c
+
+def solution(phoneBook):
+    answer = True
+    sortedPB = sorted(phoneBook)
+    for (a,b) in c(sortedPB,2):
+        if a == b[:len(a)]:
+            answer = False
+    return answer
+
+## 4. -> 효율성 실패
+def solution(phoneBook):
+    phoneBook.sort(key=lambda x: len(x))
+    for a in range(len(phoneBook)):
+        for b in range(a+1, len(phoneBook)):
+            if phoneBook[b][:len(phoneBook[a])] == phoneBook[a]:
+                return False
+    return True
 
 ## 폰켓몬
 
