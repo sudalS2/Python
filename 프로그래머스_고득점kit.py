@@ -61,7 +61,7 @@ def solution(nums):
     if len(c_nums) >= len(nums)/2:
         return len(nums)/2
     else:
-        return len(c_nums)
+        return len(c_nums)T
     
 ### 2.
 def solution(nums):
@@ -121,9 +121,10 @@ def solution(phoneBook):
                 return False
     return True
 
-## 폰켓몬
+## 위장
 
 ### 1.
+
 ### 2.
 ### 3.
   
