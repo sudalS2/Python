@@ -1,4 +1,4 @@
-# 해시
+# 해시 -> 딕셔너리 데이터 이해
 
 ## 완주하지 못한 선수
 
@@ -123,16 +123,103 @@ def solution(phoneBook):
 
 ## 위장
 
-### 1.
+### 1. 
+from collections import Counter
+from functools import reduce
+
+def solution(clothes):
+    cnt = Counter([kind for name, kind in clothes])
+    answer = reduce(lambda x, y: x * (y+1), cnt.values(), 1) - 1
+    return answer
+
+### 설명
+- functools.reduce(집계 함수: lambda 식 사용 가능, [순회 가능한 데이터] : list 형식, 초기값=시작값)
+ex) reduce(lambda x, y: x * (y+1), cnt.values(), 1) - 1 => 1 * (2+1) = 3 -> 3 * (1+1) = 6 -> 6 - 1 = 5
 
 ### 2.
+import collections
+from functools import reduce
+
+def solution(clothes):
+    return reduce(lambda x,y:x*y,[a+1 for a in collections.Counter([x[1] for x in clothes]).values()])-1
+
 ### 3.
-  
-## 폰켓몬
+def solution(clothes):
+    clothes_type = {}
+
+    for c, t in clothes:
+        if t not in clothes_type:
+            clothes_type[t] = 2
+        else:
+            clothes_type[t] += 1
+
+    cnt = 1
+    for num in clothes_type.values():
+        cnt *= num
+        
+    return cnt - 1
+
+## 베스트앨범
 
 ### 1.
+def solution(genres, plays):
+    answer = []
+    d = {e:[] for e in set(genres)}
+    
+    for e in zip(genres, plays, range(len(plays))):
+        d[e[0]].append([e[1] , e[2]])
+    genreSort =sorted(list(d.keys()), key= lambda x: sum( map(lambda y: y[0],d[x])), reverse = True)
+    
+    for g in genreSort:
+        temp = [e[1] for e in sorted(d[g],key= lambda x: (x[0], -x[1]), reverse = True)]
+        answer += temp[:min(len(temp),2)]
+        
+    return answer
+
 ### 2.
+def solution(genres, plays):
+    answer = []
+
+    dic1 = {}
+    dic2 = {}
+
+    for i, (g, p) in enumerate(zip(genres, plays)):
+        if g not in dic1:
+            dic1[g] = [(i, p)]
+        else:
+            dic1[g].append((i, p))
+
+        if g not in dic2:
+            dic2[g] = p
+        else:
+            dic2[g] += p
+
+    for (k, v) in sorted(dic2.items(), key=lambda x:x[1], reverse=True):
+        for (i, p) in sorted(dic1[k], key=lambda x:x[1], reverse=True)[:2]:
+            answer.append(i)
+
+    return answer
+
 ### 3.
+def solution(genres, plays):
+    genres_dict = {}
+    genres_list = []
+    
+    for i in range(len(genres)):
+        if genres[i] not in genres_dict:
+            genres_dict[genres[i]] = []
+        genres_dict[genres[i]].append([i, plays[i]])
+
+    for g in genres_dict:
+        genres_dict[g].sort(key=lambda x: x[1], reverse=True)
+        genres_list.append([g, sum([play for _, play in genres_dict[g]])])
+
+    genres_list.sort(key=lambda x: x[1], reverse=True)
+    answer = []
+    
+    for g, _ in genres_list:
+        answer.extend([x[0] for x in genres_dict[g][:2]])
+    return answer
 
 ## 폰켓몬
 
