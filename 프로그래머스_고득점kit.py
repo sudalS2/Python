@@ -196,9 +196,29 @@ def solution(genres, plays):
 
     for (k, v) in sorted(dic2.items(), key=lambda x:x[1], reverse=True):
         for (i, p) in sorted(dic1[k], key=lambda x:x[1], reverse=True)[:2]:
-            answer.append(i)
+            answer.append(i) # i는 인덱스 번호
 
     return answer
+
+### 설명
+- enumerate(): 리스트에서 요소와 인덱스 얻기
+- zip(): 여러개의 리스트에서 요소들 얻기
+ex) names = ['Alice', 'Bob', 'Charlie'], ages = [24, 50, 18]
+for i, (name, age) in enumerate(zip(names, ages)):
+    print(i, name, age)
+
+# 0 Alice 24
+# 1 Bob 50
+# 2 Charlie 18    
+
+- dic1 = {"classic":[[0,500],[2,150],[3,800]],"pop":[[1,600],[4,2500]]}
+- dic2 = {"classic":1450,"pop":3100}
+
+- sorted(dic2.items(), key=lambda x:x[1], reverse=True) : dic2를 재생수 별로 내림차순 정렬 -> [["pop",3100],["classic",1450]]
+- sorted(dic1[k], key=lambda x:x[1], reverse=True)[:2] : dic1['pop'],dic1['classic']를 재생수 별로 내림차순 정렬한 것을 앞에서 2개만 추출 
+-> 'pop'일 경우 [[4,2500],[1,600]],'classic'일 경우 [[3,800],[0,500]]
+
+
 
 ### 3.
 def solution(genres, plays):
