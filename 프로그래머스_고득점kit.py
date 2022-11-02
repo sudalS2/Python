@@ -167,7 +167,7 @@ def solution(genres, plays):
     d = {e:[] for e in set(genres)}
     
     for e in zip(genres, plays, range(len(plays))):
-        d[e[0]].append([e[1] , e[2]])
+        d[e[0]].append([e[1] , e[2]]) # 같은 장르에 [재생횟수, 인덱스 값] 추가
     genreSort =sorted(list(d.keys()), key= lambda x: sum( map(lambda y: y[0],d[x])), reverse = True)
     
     for g in genreSort:
@@ -176,6 +176,16 @@ def solution(genres, plays):
         
     return answer
 
+### 설명
+- list(set(genres)) -> ["classic","pop"] : 순서가 없고, 집합안에서는 unique한 값, mutable 객체
+
+- zip(genres, plays, range(len(plays))) -> [["classic",500,0],["pop",600,1],["classic",150,2],["classic",800,3],["pop",2500,4]]
+ex) dict(zip(["year", "month", "date"], [2001, 1, 31])) -> {'year': 2001, 'month': 1, 'date': 31}    
+ex) numbers = ["1", "2", "3"], letters = ["A"]
+    list(zip(numbers, letters)) -> [('1', 'A')] : 길이가 짧은 리스트에 맞춰서 나머지 버려짐
+        
+- d = {"classic":[[0,500],[2,150],[3,800]],"pop":[[1,600],[4,2500]]}      
+        
 ### 2.
 def solution(genres, plays):
     answer = []
