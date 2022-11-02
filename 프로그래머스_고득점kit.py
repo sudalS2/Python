@@ -33,23 +33,23 @@ def solution(participant, completion):
 
     return answer
   
-  ### 3.
-  def solution(participant, completion):
-    participant.sort()
-    completion.sort()
-    for i in range(len(completion)):
-        if participant[i] != completion[i]:
-            return participant[i]
-    return participant[len(participant)-1]
+### 3.
+def solution(participant, completion):
+  participant.sort()
+  completion.sort()
+  for i in range(len(completion)):
+      if participant[i] != completion[i]:
+          return participant[i]
+  return participant[len(participant)-1]
   
-  ### 4.
-  def solution(participant, completion):
-    participant.sort()
-    completion.sort()
-    for p, c in zip(participant, completion):
-        if p != c:
-            return p
-    return participant[-1]
+### 4.
+def solution(participant, completion):
+  participant.sort()
+  completion.sort()
+  for p, c in zip(participant, completion):
+      if p != c:
+          return p
+  return participant[-1]
   
 ## 폰켓몬
 
@@ -112,7 +112,7 @@ def solution(phoneBook):
             answer = False
     return answer
 
-## 4. -> 효율성 실패
+### 4. -> 효율성 실패
 def solution(phoneBook):
     phoneBook.sort(key=lambda x: len(x))
     for a in range(len(phoneBook)):
@@ -251,11 +251,33 @@ def solution(genres, plays):
         answer.extend([x[0] for x in genres_dict[g][:2]])
     return answer
 
-## 폰켓몬
+
+# 정렬
+
+## K번째수
 
 ### 1.
+def solution(array, commands):
+    answer = []
+    for i in range(len(commands)):
+        answer.append(sorted(array[commands[i][0]-1:commands[i][1]])[commands[i][2]-1]) 
+    return answer
+
 ### 2.
+def solution(array, commands):
+    return list(map(lambda x:sorted(array[x[0]-1:x[1]])[x[2]-1], commands))
+
 ### 3.
+def solution(array, commands):
+    return [sorted(array[a[0]-1:a[1]])[a[2]-1] for a in commands]
+
+### 4.
+def solution(array, commands):
+    answer = []
+    for command in commands:
+        i,j,k = command
+        answer.append(list(sorted(array[i-1:j]))[k-1])
+    return answer
 
 ## 폰켓몬
 
