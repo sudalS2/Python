@@ -279,11 +279,54 @@ def solution(array, commands):
         answer.append(list(sorted(array[i-1:j]))[k-1])
     return answer
 
-## 폰켓몬
+## 가장 큰 수
 
 ### 1.
+def solution(numbers):
+    numbers = list(map(str, numbers))
+    numbers.sort(key=lambda x: x * 3, reverse=True)
+    return str(int(''.join(numbers)))
+
 ### 2.
-### 3.
+import functools
+
+def comparator(a,b):
+    t1 = a+b
+    t2 = b+a
+    return (int(t1) > int(t2)) - (int(t1) < int(t2)) #  t1이 크다면 1  // t2가 크다면 -1  //  같으면 0
+
+def solution(numbers):
+    n = [str(x) for x in numbers]
+    n = sorted(n, key=functools.cmp_to_key(comparator),reverse=True)
+    answer = str(int(''.join(n)))
+    return answer
+
+### 3. -> 시간 초과 실패
+from itertools import permutations
+
+def solution(numbers):
+    a = []
+    result = []
+    for i in range(len(numbers)):
+        a.append(str(numbers[i]))
+        a_p = list(permutations(a,len(a)))
+    
+    for j in range(len(a_p)):
+        result.append(''.join(a_p[j]))
+    return sorted(result, key = int, reverse = True)[0]
+
+### 4. -> 시간 초과 실패
+from itertools import permutations
+
+def solution(numbers):
+    answer = []
+    a = []
+    a_c = list(permutations(numbers,len(numbers)))
+    
+    for i in range(len(a_c)):
+        answer.append([str(a_c[i][j]) for j in range(len(numbers))])
+        a.append(''.join(answer[i]))    
+    return sorted(a, key = int, reverse = True)[0]
 
 ## 폰켓몬
 
