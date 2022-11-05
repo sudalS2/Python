@@ -429,11 +429,64 @@ def solution(answers):
                 s[i] += 1
     return [i + 1 for i, v in enumerate(s) if v == max(s)]
 
-## 폰켓몬
+## 소수 찾기
 
 ### 1.
+from itertools import permutations as per
+
+def solution(numbers):
+    answer = []
+    a = []
+    list_n = list(map(str, numbers))
+    
+    for i in range(1,len(list_n)+1):
+        answer += (list(per(list_n,i)))
+        new_n = list(set([int(''.join(p)) for p in answer]) - set([0,1]))
+        
+    for i in new_n:
+        is_prime = True
+        for j in range(2, i):
+            if i % j == 0:
+                is_prime = False
+                break
+        if is_prime:
+            a.append(i)
+    return len(a)
+
 ### 2.
+from itertools import permutations
+
+def solution(n):
+    a = set()
+    for i in range(len(n)):
+        a |= set(map(int, map("".join, permutations(list(n), i + 1))))
+    a -= set(range(0, 2))
+    for i in range(2, int(max(a) ** 0.5) + 1):
+        a -= set(range(i * 2, max(a) + 1, i))
+    return len(a)
+
 ### 3.
+primeSet = set()
+
+def isPrime(number):
+    if number in (0, 1):
+        return False
+    for i in range(2, number):
+        if number % i == 0:
+            return False
+    return True
+
+def makeCombinations(str1, str2):
+    if str1 != "":
+        if isPrime(int(str1)):
+            primeSet.add(int(str1))
+    for i in range(len(str2)):
+        makeCombinations(str1 + str2[i], str2[:i] + str2[i + 1:])
+
+def solution(numbers):
+    makeCombinations("", numbers)
+    answer = len(primeSet)
+    return answer
 
 ## 폰켓몬
 
