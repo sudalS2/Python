@@ -334,17 +334,100 @@ def solution(numbers):
 ### 2.
 ### 3.
 
-## 폰켓몬
+# 완전탐색
+
+## 최소직사각형
 
 ### 1.
-### 2.
-### 3.
+def solution(sizes):
+    return max(max(i) for i in sizes) * max(min(i) for i in sizes)
 
-## 폰켓몬
+### 2.
+solution = lambda sizes: max(sum(sizes, [])) * max(min(size) for size in sizes)
+
+### 3.
+def solution(sizes):
+    big=[]
+    small=[]
+    for i in sizes:
+        if i[0]>i[1]:
+            big.append(i[0])
+            small.append(i[1])
+        else:
+            big.append(i[1])
+            small.append(i[0])
+            
+    return max(big)*max(small)
+
+## 모의고사
 
 ### 1.
+def solution(answers):
+    a_1 = list(range(1,6))
+    a_2 = [2,1,2,3,2,4,2,5]
+    a_3 = [3,3,1,1,2,2,4,4,5,5]
+    r_1, r_2, r_3 = 0,0,0
+    answer = []
+    
+    for i in range(len(answers)):
+        s_1 = i % len(a_1)
+        s_2 = i % len(a_2)
+        s_3 = i % len(a_3)
+        
+        if a_1[s_1] == answers[i]:
+            r_1 += 1
+        if a_2[s_2] == answers[i]:
+            r_2 += 1
+        if a_3[s_3] == answers[i]:
+            r_3 += 1
+    
+    if max(r_1,r_2,r_3) == r_1:
+        answer.append(1)
+    if max(r_1,r_2,r_3) == r_2:
+        answer.append(2)
+    if max(r_1,r_2,r_3) == r_3:
+        answer.append(3)
+    
+    return answer
+    
 ### 2.
+def solution(answers):
+    pattern1 = [1,2,3,4,5]
+    pattern2 = [2,1,2,3,2,4,2,5]
+    pattern3 = [3,3,1,1,2,2,4,4,5,5]
+    score = [0, 0, 0]
+    result = []
+
+    for idx, answer in enumerate(answers):
+        if answer == pattern1[idx%len(pattern1)]:
+            score[0] += 1
+        if answer == pattern2[idx%len(pattern2)]:
+            score[1] += 1
+        if answer == pattern3[idx%len(pattern3)]:
+            score[2] += 1
+
+    for idx, s in enumerate(score, start = 1):
+        if s == max(score):
+            result.append(idx)
+
+    return result
+
+### 설명
+- enumerate(리스트 자료, start = 숫자 -> 인덱스 번호 시작값) : (인덱스 번호, 값)
+
+
 ### 3.
+def solution(answers):
+    p = [[1, 2, 3, 4, 5],
+         [2, 1, 2, 3, 2, 4, 2, 5],
+         [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]]
+    s = [0] * len(p)
+
+    for q, a in enumerate(answers):
+        for i, v in enumerate(p):
+            if a == v[q % len(v)]:
+                s[i] += 1
+    return [i + 1 for i, v in enumerate(s) if v == max(s)]
 
 ## 폰켓몬
 
