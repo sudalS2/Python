@@ -487,34 +487,3 @@ def solution(numbers):
     makeCombinations("", numbers)
     answer = len(primeSet)
     return answer
-
-## 폰켓몬
-
-### 1.
-### 2.
-### 3.
-
-## 폰켓몬
-
-### 1.
-### 2.
-### 3.
-
-## 폰켓몬
-
-### 1.
-### 2.
-### 3.
-
-## 폰켓몬
-
-### 1.
-### 2.
-### 3.
-
-## 폰켓몬
-
-### 1.
-### 2.
-### 3.
-
